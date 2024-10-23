@@ -9,7 +9,7 @@ class Game {
         this.running = false;  //running = true if running & vice versa
     }
 
-    //This draws game elements (just the background for now).
+    //This draws game elements (container, background, balls).
     run() {
         background(gameBackground);
         this.loadContainer();
