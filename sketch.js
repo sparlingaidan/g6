@@ -31,28 +31,24 @@ function draw() {
   startButton.addEventListener("click", function() {
     instance.setRunningTrue(); //start game
     settings = false; //close settings if open
-    //menuContainer.style.display = "none";
+    menuContainer.style.display = "none";
     //Need line to remove start menu from screen here
   });
   settingsButton.addEventListener("click", function() {
- 
     if (!(instance.getRunningState())) {
       if (settings == false) {
         settings = true;
       } else {
         settings = false;
       }
-    }  //menuContainer.style.display = "none";
+    }  menuContainer.style.display = "none";
   });
 
   quitButton.addEventListener("click", function() {
     if (!(instance.getRunningState()) && !settings) {
-          quit = True;
+          quit = true;
         menuContainer.style.display = "none";
         showGoodBye(); 
       }
   });
-
-  function showGoodBye(){
   
-  }
