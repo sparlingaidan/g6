@@ -53,6 +53,7 @@ function mouseClicked() {
 }
 
 
+
 //Updates the balls current speed, and moves it if it can.
 function moveMaybe(ball){
 
@@ -71,7 +72,7 @@ function moveMaybe(ball){
 //Iterate through the list of balls, maybe move and draw each one.
 function drawBalls(){
   //Iterate through the list
-  for(i = 0;i < ballArray.length; i++){
+  for(i = 0; i < ballArray.length; i++){
     temp = ballArray[i];
     moveMaybe(temp);     //maybe move the ball
     temp.to_screen();    //print the ball
