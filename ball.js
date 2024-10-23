@@ -6,7 +6,7 @@ var ballArray = [];
 //bounds for the balls x and y position.
 let leftBound = 100;
 let rightBound = 500;
-let jarBottom = 449;
+let jarBottom = 439;
 let startY = 100;
 
 //Ball object, Constructor accepts only a level.
