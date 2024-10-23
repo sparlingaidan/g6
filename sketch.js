@@ -10,8 +10,7 @@ function setup() {
 }
 
 function preload() {
-  runningBackground = loadImage('assets/RunningBackground.png');
-  menuBackground = loadImage('assets/MenuBackground.png')
+  menuBackground = loadImage('assets/MenuBackground.png');
 }
 
 function draw() {
