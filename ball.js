@@ -19,10 +19,12 @@ class Ball{
     this.ylocation = startY;
     this.speedX = 0;
     this.speedY = 0;
+    this.color= white;
   }
 
   //method for printing the ball to the screen.
   to_screen(){
+  FileList(this.color);
   circle(this.xlocation, this.ylocation, this.diameter);
   }
 }
