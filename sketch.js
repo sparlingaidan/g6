@@ -24,26 +24,9 @@ function draw() {
     fill('white');
     text("SETTINGS:", 35, 5);
   }
-}// find a way to make the main menu go away once the ame start or the settigns or the quit is clicked
+}
+// find a way to make the main menu go away once the game start or the settigns or the quit is clicked
 
-//Start and settings buttons
-//The three if statements will need to be changed to match button
-//location once menu design is done.
-//function buttonClicked() {
-  //if (mouseX < 100) {
-  //  instance.setRunningTrue(); //start game
-  //  settings = false; //close settings if open
-  //}
-
-  //if (!(instance.getRunningState())) { //settings buttons dont work if game is started
-   // if (mouseX < 150 && mouseX > 100) { //Open settings button
-   // settings = true; 
-  //  }
-
-  //  if (mouseX > 150) {
-  //  settings = false; //close settings button
-  //  }
-  //}
 
   startButton.addEventListener("click", function() {
     instance.setRunningTrue(); //start game
