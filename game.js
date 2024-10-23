@@ -14,6 +14,7 @@ class Game {
         background(gameBackground);
         this.loadContainer();
         drawBalls();
+        this.drawDashedLine();
     }
 
     //Set the running state to true
@@ -42,6 +43,7 @@ class Game {
 
     // Function to draw the container
     loadContainer() {
+        stroke(0);
         strokeWeight(1);
         let c = [173, 216, 230];
         let c2 = [136, 231, 136];
@@ -59,5 +61,17 @@ class Game {
         line(500, 150, 500, 500);  // Right side line
         line(100, 499, 500, 500);  // Bottom line
   }
+
+    drawDashedLine(){
+        const y = 150; // out of bounds / losing condition coordinate
+        const dashLength = 10;
+        const gap = 20;
+        const lineLength = width;
+        for (let x = 0; x < lineLength; x += dashLength + gap) {
+            stroke("red")
+            strokeWeight(2)
+            line(x, y, x + dashLength, y);
+        }
+        }
+    }
         
-}

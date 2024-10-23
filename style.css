@@ -10,6 +10,7 @@ canvas {
 
  body{
   background-color: black;
+  background-image: url('assets/Space Background.png');
    color: white; 
    display: flex;
   justify-content:center;
