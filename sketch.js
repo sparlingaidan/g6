@@ -1,6 +1,8 @@
 let instance = new Game(); //single instance of Game.
 let gameBackground; //The background for after the game has started
 var settings = false; //toggle for settings menu
+const startButton = document.getElementById("Startbutton");
+const settingsButton = document.getElementById("Settingsbutton");
 
 function setup() {
   createCanvas(600, 500);
@@ -19,27 +21,44 @@ function draw() {
   }
   if (settings) {                           //If settings is opened draw settings menu.
     fill('white');
-    text("SETTINGS:", 100, 5);
+    text("SETTINGS:", 35, 5);
   }
 }
 
 //Start and settings buttons
 //The three if statements will need to be changed to match button
 //location once menu design is done.
-function mousePressed() {
-  if (mouseX < 100) {
+//function buttonClicked() {
+  //if (mouseX < 100) {
+  //  instance.setRunningTrue(); //start game
+  //  settings = false; //close settings if open
+  //}
+
+  //if (!(instance.getRunningState())) { //settings buttons dont work if game is started
+   // if (mouseX < 150 && mouseX > 100) { //Open settings button
+   // settings = true; 
+  //  }
+
+  //  if (mouseX > 150) {
+  //  settings = false; //close settings button
+  //  }
+  //}
+
+  startButton.addEventListener("click", function() {
     instance.setRunningTrue(); //start game
     settings = false; //close settings if open
-  }
+    //Need line to remove start menu from screen here
+  });
 
-  if (!(instance.getRunningState())) { //settings buttons dont work if game is started
-    if (mouseX < 150 && mouseX > 100) { //Open settings button
-    settings = true; 
+  settingsButton.addEventListener("click", function() {
+    if (!(instance.getRunningState())) {
+      if (settings == false) {
+        settings = true;
+      } else {
+        settings = false;
+      }
     }
+  });
 
-    if (mouseX > 150) {
-    settings = false; //close settings button
-    }
-  }
-}
+
 
