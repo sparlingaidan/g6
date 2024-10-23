@@ -74,8 +74,28 @@ function moveMaybe(ball){
   }
 }
 
+let topBall = new Ball(2);
+function drawTopBall(){
+
+  topBall.ylocation = startY
+  topBall.xlocation = mouseX
+
+    //Stops the ball from going to far left
+    if( (mouseX - (topBall.diameter >> 1) ) < leftBound ){
+      topBall.xlocation = leftBound + (topBall.diameter >> 1);
+    }
+    //Stops the ball from going to far right
+    if( rightBound  < (mouseX + (topBall.diameter >> 1)) ){
+      topBall.xlocation = rightBound - (topBall.diameter >> 1);
+    }
+
+
+  topBall.to_screen();
+}
+
 //Iterate through the list of balls, maybe move and draw each one.
 function drawBalls(){
+  drawTopBall();
   //Iterate through the list
   for(i = 0; i < ballArray.length; i++){
     temp = ballArray[i];
