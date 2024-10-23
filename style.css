@@ -19,14 +19,6 @@ canvas {
   font-family:'Times New Roman', Times, serif; 
 
  }
-.themenu-container{
-  text-align: center;
-
-}
-.buttons-container{
-  margin-top:20px
-
-}
 
 .button{
   background-color: #444;
@@ -38,5 +30,11 @@ canvas {
   font-size: 16px;
 
 } 
+.themenu-container{
+  position: absolute;
+  left: 500;
+  top:500;
+
+}
 
 /*style for main menu ends here*/
