@@ -10,14 +10,15 @@ function setup() {
 }
 
 function preload() {
-  gameBackground = loadImage('assets/Game Background.png');
+  runningBackground = loadImage('assets/RunningBackground.png');
+  menuBackground = loadImage('assets/MenuBackground.png')
 }
 
 function draw() {
   if (instance.getRunningState() == true) { //If the game has started,
     instance.run();                         //draw the game
   } else {                                  //otherwise draw the menu.
-    background(200);                        //Main menu draw goes here                   
+    background(menuBackground);                        //Main menu draw goes here                   
   }
   if (settings) {                           //If settings is opened draw settings menu.
     fill('white');
