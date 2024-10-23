@@ -11,7 +11,7 @@ class Game {
 
     //This draws game elements (container, background, balls).
     run() {
-        background(gameBackground);
+        background(runningBackground);
         this.loadContainer();
         drawBalls();
         this.drawDashedLine();
