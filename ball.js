@@ -8,6 +8,7 @@ let leftBound = 100;
 let rightBound = 500;
 let jarBottom = 439;
 let startY = 100;
+let firstClick = true; //Boolean to track the click for the start button and make sure not to draw a ball on that click.
 
 //Ball object, Constructor accepts only a level.
 class Ball{
@@ -46,9 +47,13 @@ function makeBall (clickX){
 
 //Create a ball and add it to the list when a mouse is clicked
 function mouseClicked() { 
-  if(instance.getRunningState() == true){//Only makes balls if the game is running.
-    ball = makeBall(mouseX);
-    ballArray.push(ball);
+  if(instance.getRunningState() == true) {//Only makes balls if the game is running.
+    if (firstClick) {
+      firstClick = false;
+    } else {
+      ball = makeBall(mouseX);
+      ballArray.push(ball);
+    }
   }
 }
 
