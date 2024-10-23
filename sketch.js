@@ -8,7 +8,7 @@ function setup() {
 }
 
 function preload() {
-  gameBackground = loadImage('assets/RunningBackground.png');
+  gameBackground = loadImage('assets/Game Background.png');
 }
 
 function draw() {
@@ -21,7 +21,7 @@ function draw() {
     fill('white');
     text("SETTINGS:", 100, 5);
   }
-}
+}// find a way to make the main menu go away once the ame start or the settigns or the quit is clicked
 
 //Start and settings buttons
 //The three if statements will need to be changed to match button
