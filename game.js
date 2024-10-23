@@ -13,6 +13,7 @@ class Game {
     run() {
         background(gameBackground);
         this.loadContainer();
+        drawBalls();
     }
 
     //Set the running state to true
