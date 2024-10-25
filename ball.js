@@ -19,12 +19,13 @@ class Ball{
     this.ylocation = startY;
     this.speedX = 0;
     this.speedY = 0;
-    // this.color= white;
+    this.color= "white";
   }
 
   //method for printing the ball to the screen.
   to_screen(){
-    //fill(this.color)
+  stroke(this.color);
+  fill(this.color);
   circle(this.xlocation, this.ylocation, this.diameter);
   }
 }
@@ -104,5 +105,17 @@ function drawBalls(){
     moveMaybe(temp);     //maybe move the ball
     temp.to_screen();    //print the ball
   }
+}
+
+function setColor(color) {
+  this.color = color;
+}
+
+function setLevel(level) {
+  this.level = level;
+}
+
+function getDiameter() {
+  return this.diameter;
 }
 
