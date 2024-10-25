@@ -38,4 +38,8 @@ canvas {
 
 }
 
+.goodbye-message{
+  color: white; 
+  text-align: center;
+}
 /*style for main menu ends here*/

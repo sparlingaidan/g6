@@ -2,10 +2,13 @@ let instance = new Game(); //single instance of Game.
 let gameBackground; //The background for after the game has started
 var settings = false; //toggle for settings menu
 var quit = false;
+
 const startButton = document.getElementById("Startbutton");
 const settingsButton = document.getElementById("Settingsbutton");
 const quitButton = document.getElementById("Quitbutton");
 const menuContainer = document.getElementById("themenu-container");
+const goodbye = document.getElementById("goodbye-message");
+
 function setup() {
   createCanvas(600, 500);
   textAlign(CENTER, TOP); //Makes it easier to place text.
@@ -52,4 +55,6 @@ function draw() {
         showGoodBye(); 
       }
   });
-  
+  function showGoodbye() {
+    goodbyeMessage.style.display = "block";
+  }  
