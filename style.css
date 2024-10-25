@@ -39,7 +39,10 @@ canvas {
 }
 
 .goodbye-message{
-  color: white; 
-  text-align: center;
+  position: absolute;
+  left: 500;
+  top:500;
+  color:purple
+
 }
 /*style for main menu ends here*/

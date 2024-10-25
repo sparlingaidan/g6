@@ -35,6 +35,7 @@ function draw() {
   startButton.addEventListener("click", function() {
     instance.setRunningTrue(); //start game
     settings = false; //close settings if open
+    quite = false;
     menuContainer.style.display = "none";
     //Need line to remove start menu from screen here
   });
@@ -42,8 +43,10 @@ function draw() {
     if (!(instance.getRunningState())) {
       if (settings == false) {
         settings = true;
+        quite = false;
       } else {
         settings = false;
+        quite = false;
       }
     }  menuContainer.style.display = "none";
   });
@@ -56,5 +59,7 @@ function draw() {
       }
   });
   function showGoodbye() {
+    if (quit){
     goodbyeMessage.style.display = "block";
   }  
+}
