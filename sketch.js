@@ -7,7 +7,7 @@ const startButton = document.getElementById("Startbutton");
 const settingsButton = document.getElementById("Settingsbutton");
 const quitButton = document.getElementById("Quitbutton");
 const menuContainer = document.getElementById("themenu-container");
-const goodbye = document.getElementById("goodbye-message");
+const goodbyemode = document.getElementById("goodbye-message");
 
 function setup() {
   createCanvas(600, 500);
@@ -32,34 +32,40 @@ function draw() {
 }
 
 
-  startButton.addEventListener("click", function() {
-    instance.setRunningTrue(); //start game
-    settings = false; //close settings if open
-    quite = false;
-    menuContainer.style.display = "none";
+startButton.addEventListener("click", function() {
+  instance.setRunningTrue(); //start game
+  settings = false; //close settings if open
+  quit = false;
+  menuContainer.style.display = "none";
+  goodbyemode.style.display ="none";
     //Need line to remove start menu from screen here
   });
-  settingsButton.addEventListener("click", function() {
-    if (!(instance.getRunningState())) {
-      if (settings == false) {
-        settings = true;
-        quite = false;
-      } else {
-        settings = false;
-        quite = false;
+
+settingsButton.addEventListener("click", function() {
+  if (!(instance.getRunningState())) {
+    if (settings == false) {
+      settings = true;
+      quit = false;
+    } else {
+      settings = false;
+      quit = false;
       }
-    }  menuContainer.style.display = "none";
+    }  
+     goodbyemode.style.display ="none";
+    menuContainer.style.display = "none";
+    
   });
 
-  quitButton.addEventListener("click", function() {
-    if (!(instance.getRunningState()) && !settings) {
-          quit = true;
-        menuContainer.style.display = "none";
-        showGoodBye(); 
+quitButton.addEventListener("click", function() {
+  if (!(instance.getRunningState()) && !settings) {
+    console.log("are you working");
+      quit = true;
+      menuContainer.style.display = "none";
+      showGoodBye(); 
       }
   });
-  function showGoodbye() {
+  function showGoodBye() {
     if (quit){
-    goodbyeMessage.style.display = "block";
+      goodbyemode.style.display = "block";
   }  
 }

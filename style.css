@@ -11,7 +11,7 @@ canvas {
  body{
   background-color: black;
   background-image: url('assets/Space Background.png');
-   color: white; 
+   color: rgb(180, 18, 151); 
    display: flex;
   justify-content:center;
   align-items: center;
@@ -42,7 +42,8 @@ canvas {
   position: absolute;
   left: 500;
   top:500;
-  color:purple
+  color:white;
+  display : none;
 
 }
 /*style for main menu ends here*/
