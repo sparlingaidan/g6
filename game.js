@@ -2,6 +2,7 @@
     Class to manage basic game functions in, so that we can draw
     the game by instance.run() in sketch.js).
 */
+let container;
 class Game {
 
     //This sets the running state of the game to false when the game is created.
@@ -71,7 +72,8 @@ class Game {
             stroke("red")
             strokeWeight(2)
             line(x, y, x + dashLength, y);
-        }
+            }
         }
     }
-        
+     
+
