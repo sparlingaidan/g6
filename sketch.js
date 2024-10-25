@@ -58,7 +58,6 @@ settingsButton.addEventListener("click", function() {
 
 quitButton.addEventListener("click", function() {
   if (!(instance.getRunningState()) && !settings) {
-    console.log("are you working");
       quit = true;
       menuContainer.style.display = "none";
       showGoodBye(); 
