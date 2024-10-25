@@ -107,3 +107,15 @@ function drawBalls(){
   }
 }
 
+function setColor(color) {
+  this.color = color;
+}
+
+function setLevel(level) {
+  this.level = level;
+}
+
+function getDiameter() {
+  return this.diameter;
+}
+
