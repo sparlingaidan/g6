@@ -1,7 +1,12 @@
 let instance = new Game(); //single instance of Game.
+let ToMenuButton = new exit(); //single instance of an exit button
 let gameBackground; //The background for after the game has started
+
+
 var settings = false; //toggle for settings menu
 var quit = false;
+var ballViewer = false; //Unfinished
+var exitable = true; //there is an exitable situation in which the exit to menu button could be pressed.
 
 const startButton = document.getElementById("Startbutton");
 const settingsButton = document.getElementById("Settingsbutton");
@@ -21,13 +26,21 @@ function preload() {
 
 function draw() {
   if (instance.getRunningState() == true) { //If the game has started,
-    instance.run();                         //draw the game
+    instance.run();     //draw the game
+    exitable = true;
   } else {                                  //otherwise draw the menu.
-    background(menuBackground);                        //Main menu draw goes here                   
+    background(menuBackground);                   
   }
   if (settings) {                           //If settings is opened draw settings menu.
     fill('white');
-    text("SETTINGS:", 35, 5);
+    stroke("purple");                       //Note to all:
+                                            //I'll be moving the settings implementation to it's own class soon.
+                                            // -Ryan
+    strokeWeight(2);
+    text("SETTINGS:", 130, 27);
+    noStroke();
+    ToMenuButton.displayButton();
+    exitable = true;
   }
 }
 
@@ -38,7 +51,6 @@ startButton.addEventListener("click", function() {
   quit = false;
   menuContainer.style.display = "none";
   goodbyemode.style.display ="none";
-    //Need line to remove start menu from screen here
   });
 
 settingsButton.addEventListener("click", function() {
@@ -63,8 +75,11 @@ quitButton.addEventListener("click", function() {
       showGoodBye(); 
       }
   });
-  function showGoodBye() {
-    if (quit){
-      goodbyemode.style.display = "block";
+
+function showGoodBye() {
+  if (quit){
+   goodbyemode.style.display = "block";
   }  
 }
+
+

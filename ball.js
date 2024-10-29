@@ -22,6 +22,17 @@ class Ball{
     this.color= "white";
   }
 
+ /* constructor(level, x, y) {
+    this.level = level;
+    this.diameter = level * 20; //I'm not sure what relation we want from the level to its size.
+    this.xlocation = x;
+    this.ylocation = y;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.color= "white";
+  }
+    */
+
   //method for printing the ball to the screen.
   to_screen(){
   stroke(this.color);

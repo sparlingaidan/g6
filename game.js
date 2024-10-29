@@ -10,12 +10,14 @@ class Game {
         this.running = false;  //running = true if running & vice versa
     }
 
+
     //This draws game elements (container, background, balls).
     run() {
         background(runningBackground);
         this.loadContainer();
         drawBalls();
         this.drawDashedLine();
+        ToMenuButton.displayButton();
     }
 
     //Set the running state to true
@@ -29,11 +31,13 @@ class Game {
             this.running = true;
         } else {
             this.running = false;
+            firstClick = true;
         }
     }
 
     //set the running state to false
     setRunningFalse() {
+        firstClick = true;
         this.running = false;
     }
 
@@ -73,6 +77,7 @@ class Game {
             strokeWeight(2)
             line(x, y, x + dashLength, y);
             }
+            noStroke();
         }
     }
      
