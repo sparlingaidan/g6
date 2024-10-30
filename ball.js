@@ -9,29 +9,20 @@ let rightBound = 500;
 let jarBottom = 439;
 let startY = 100;
 let firstClick = true; //Boolean to track the click for the start button and make sure not to draw a ball on that click.
+let isClickable = true;
 
 //Ball object, Constructor accepts only a level.
-class Ball{
-  constructor(level){
+class Ball {
+  constructor(level, x = 0, y = startY){
     this.level = level;
-    this.diameter = level * 20; //I'm not sure what relation we want from the level to its size.
-    this.xlocation = 0;
-    this.ylocation = startY;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.color= "white";
-  }
-
- /* constructor(level, x, y) {
-    this.level = level;
-    this.diameter = level * 20; //I'm not sure what relation we want from the level to its size.
+    this.diameter = 20 + level * 10; //I'm not sure what relation we want from the level to its size.
     this.xlocation = x;
     this.ylocation = y;
     this.speedX = 0;
     this.speedY = 0;
     this.color= "white";
   }
-    */
+
 
   //method for printing the ball to the screen.
   to_screen(){
@@ -61,32 +52,23 @@ function makeBall (clickX){
 
 //Create a ball and add it to the list when a mouse is clicked
 function mouseClicked() { 
+
   if(instance.getRunningState() == true) {//Only makes balls if the game is running.
     if (firstClick) {
       firstClick = false;
-    } else {
+    } else if (isClickable) {
       ball = makeBall(mouseX);
+      isClickable = false;
       ballArray.push(ball);
+      setTimeout(() => {
+        isClickable = true;
+      }, 1000);
     }
   }
 }
 
 
 
-//Updates the balls current speed, and moves it if it can.
-function moveMaybe(ball){
-
-  ball.speedY = ball.speedY + 5;  //This line and the next controll gravity
-  let correctedSpeed = ball.speedY >> 5;
-
-  ball.ylocation = ball.ylocation + correctedSpeed;
-
-  //For stopping the ball at the bottom of the jar.
-  if ( ball.ylocation >= (jarBottom - (ball.diameter >> 1) ) ){
-    ball.ylocation = jarBottom - (ball.diameter >> 1);
-    ball.speedY = 0;
-  }
-}
 
 let topBall = new Ball(2);
 function drawTopBall(){
@@ -107,15 +89,84 @@ function drawTopBall(){
   topBall.to_screen();
 }
 
+
+
+//Updates the balls current speed, and moves it if it can.
+function moveMaybe(ballm,i){
+
+    ballm.speedY = ballm.speedY + 2;  //This line controlls gravity  
+
+  
+    //Look through the list of balls to check for collisions.
+    for (l=0; l<ballArray.length; l++){
+      temp = ballArray[l]; 
+      dy = ballm.ylocation - temp.ylocation;
+      dx = ballm.xlocation - temp.xlocation;
+      distance = sqrt(dx * dx + dy * dy);
+      bouncedist = (ballm.diameter >>1 ) + (temp.diameter >>1);
+  
+      
+      //detect collision
+      if ( bouncedist > distance ){
+          //skip the collision if it is with itself
+          if (l != i){
+            angle = atan2(dy, dx);
+            ballm.speedX = ballm.speedX + cos(angle) * bouncedist * .04;
+            ballm.speedY = ballm.speedY + sin(angle) * bouncedist * .04;
+          }
+      }
+      if ( bouncedist > distance + 10 ){
+        //skip the collision if it is with itself
+        if (l != i){
+          angle = atan2(dy, dx);
+          ballm.speedX = ballm.speedX + cos(angle) * bouncedist * .1;
+          ballm.speedY = ballm.speedY + sin(angle) * bouncedist * .1;
+        }
+    }
+    }
+  
+    
+  
+    //For stopping the ball at the bottom of the jar.
+    if ( ballm.ylocation >= (jarBottom - (ballm.diameter >> 1) ) ){
+      ballm.ylocation = jarBottom - (ballm.diameter >> 1);
+      ballm.speedY = 0;
+    }
+
+
+    //For stopping the ball at the left of the jar.
+    if ((ballm.xlocation - (topBall.diameter >> 1) ) <= leftBound ){
+        ballm.xlocation = leftBound + (ballm.diameter >> 1);
+        ballm.speedX = ballm.speedX * -.1;
+    }
+
+    //For stopping the ball at the right of the jar.
+    if ( ballm.xlocation >= (rightBound - (ballm.diameter >> 1) ) ){
+        ballm.xlocation = rightBound - (ballm.diameter >> 1);
+        ballm.speedX = ballm.speedX * -.1;
+    }
+
+    ballm.speedX = ballm.speedX *.5;
+    ballm.speedY = ballm.speedY *.5;
+    ballm.ylocation = ballm.ylocation + Math.floor(ballm.speedY);
+    ballm.xlocation = ballm.xlocation + Math.floor(ballm.speedX);
+  
+  }
+
+
 //Iterate through the list of balls, maybe move and draw each one.
 function drawBalls(){
   drawTopBall();
   //Iterate through the list
   for(i = 0; i < ballArray.length; i++){
     temp = ballArray[i];
-    moveMaybe(temp);     //maybe move the ball
     temp.to_screen();    //print the ball
+    moveMaybe(temp,i);     //maybe move the ball
   }
+  
+
+  
+  
 }
 
 function setColor(color) {
@@ -129,4 +180,3 @@ function setLevel(level) {
 function getDiameter() {
   return this.diameter;
 }
-

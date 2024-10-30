@@ -17,9 +17,9 @@ class Game {
     //This draws game elements (container, background, balls).
     run() {
         background(runningBackground);
-        this.loadContainer();
+        loadContainer();
         drawBalls();
-        this.drawDashedLine();
+        drawDashedLine();
         ToMenuButton.displayButton();
         //  this.didBallmerge();//
         //  this.displayScore();//
@@ -50,6 +50,7 @@ class Game {
     getRunningState() {
         return this.running;
     }
+}
 
     // Function to draw the container
     loadContainer() {
@@ -85,7 +86,6 @@ class Game {
             noStroke();
         }
        
-    }
-
+    
      
 

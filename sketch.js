@@ -1,13 +1,11 @@
 let instance = new Game(); //single instance of Game.
-let ToMenuButton = new exit(); //single instance of an exit button
-let gameBackground; //The background for after the game has started
+let settingsMenu = new SettingsMenu(); //single instance of settings menu
+let ballViewer = new BallViewer(); //single instance of ball viewer
 
-
-var settings = false; //toggle for settings menu
 var quit = false;
-var ballViewer = false; //Unfinished
 var exitable = true; //there is an exitable situation in which the exit to menu button could be pressed.
 var viewscore = false; //score
+
 
 const startButton = document.getElementById("Startbutton");
 const settingsButton = document.getElementById("Settingsbutton");
@@ -15,6 +13,7 @@ const quitButton = document.getElementById("Quitbutton");
 const menuContainer = document.getElementById("themenu-container");
 const goodbyemode = document.getElementById("goodbye-message");
 const scoremode= document.getElementById("goodbye-message");
+
 
 function setup() {
   createCanvas(600, 500);
@@ -33,19 +32,14 @@ function draw() {
   } else {                                  //otherwise draw the menu.
     background(menuBackground);                   
   }
-  if (settings) {                           //If settings is opened draw settings menu.
-    fill('white');
-    stroke("purple");                       //Note to all:
-                                            //I'll be moving the settings implementation to it's own class soon.
-                                            // -Ryan
-    strokeWeight(2);
-    text("SETTINGS:", 130, 27);
-    noStroke();
-    ToMenuButton.displayButton();
-    exitable = true;
+
+  if (settingsMenu.getOpen()) {
+    settingsMenu.runSettingsMenu();
+    if (ballViewer.getOpen()) {
+      ballViewer.runBallViewer();
+    }
   }
 }
-
 
 startButton.addEventListener("click", function() {
   instance.setRunningTrue(); //start game
