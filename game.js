@@ -14,9 +14,9 @@ class Game {
     //This draws game elements (container, background, balls).
     run() {
         background(runningBackground);
-        this.loadContainer();
+        loadContainer();
         drawBalls();
-        this.drawDashedLine();
+        drawDashedLine();
         ToMenuButton.displayButton();
     }
 
@@ -46,25 +46,26 @@ class Game {
         return this.running;
     }
 
-    // Function to draw the container
+/*    // Function to draw the container
     loadContainer() {
         stroke(0);
         strokeWeight(1);
         let c = [173, 216, 230];
         let c2 = [136, 231, 136];
   
-        fill(c);
+        fill('grey');
         rect(100, 449, 399, 50); // Base of container (blue rect)
-        fill(c2);
         rect(100, 440, 399, 10); // Actual floor of container (green)
         //x values for bounds in future: left:(100) right:(500)
         //y values for bounds in future: top: 150 right: 449
   
         noFill();
+        stroke('grey');
         strokeWeight(3);
         line(100, 150, 100, 500);  // Left side line
         line(500, 150, 500, 500);  // Right side line
         line(100, 499, 500, 500);  // Bottom line
+        noStroke();
   }
 
     drawDashedLine(){
@@ -79,6 +80,8 @@ class Game {
             }
             noStroke();
         }
+    */
     }
+
      
 
