@@ -104,7 +104,6 @@ function moveMaybe(ballm,i){
       if ( bouncedist > distance ){
           //skip the collision if it is with itself
           if (l != i){
-            text(ballArray.length+'hi'+ distance, 150, 50);
             angle = atan2(dy, dx);
             ballm.speedX = ballm.speedX + cos(angle) * bouncedist * .04;
             ballm.speedY = ballm.speedY + sin(angle) * bouncedist * .04;
@@ -113,7 +112,6 @@ function moveMaybe(ballm,i){
       if ( bouncedist > distance + 10 ){
         //skip the collision if it is with itself
         if (l != i){
-          text(ballArray.length+'hi'+ distance, 150, 50);
           angle = atan2(dy, dx);
           ballm.speedX = ballm.speedX + cos(angle) * bouncedist * .1;
           ballm.speedY = ballm.speedY + sin(angle) * bouncedist * .1;
@@ -144,8 +142,8 @@ function moveMaybe(ballm,i){
 
     ballm.speedX = ballm.speedX *.5;
     ballm.speedY = ballm.speedY *.5;
-    ballm.ylocation = ballm.ylocation + ballm.speedY;
-    ballm.xlocation = ballm.xlocation + ballm.speedX;
+    ballm.ylocation = ballm.ylocation + Math.floor(ballm.speedY);
+    ballm.xlocation = ballm.xlocation + Math.floor(ballm.speedX);
   
   }
 
