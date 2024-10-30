@@ -26,17 +26,3 @@ class exit {
          text("X", this.x + this.height / 2, this.y + this.width / 2 + 1);
      }
 }
-
-function mousePressed() {
-    if (mouseX > 560 && mouseX < 590 && mouseY > 10 && mouseY < 40 && exitable == true) {
-        buttonClicked();
-    }
-}
-
-function buttonClicked() {
-    exitable = false;
-    menuContainer.style.display = "block";
-    instance.setRunningFalse();
-    ballArray = [];
-    settings = false;
-}
