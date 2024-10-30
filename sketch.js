@@ -7,12 +7,14 @@ var settings = false; //toggle for settings menu
 var quit = false;
 var ballViewer = false; //Unfinished
 var exitable = true; //there is an exitable situation in which the exit to menu button could be pressed.
+var viewscore = false; //score
 
 const startButton = document.getElementById("Startbutton");
 const settingsButton = document.getElementById("Settingsbutton");
 const quitButton = document.getElementById("Quitbutton");
 const menuContainer = document.getElementById("themenu-container");
 const goodbyemode = document.getElementById("goodbye-message");
+const scoremode= document.getElementById("goodbye-message");
 
 function setup() {
   createCanvas(600, 500);
@@ -49,8 +51,13 @@ startButton.addEventListener("click", function() {
   instance.setRunningTrue(); //start game
   settings = false; //close settings if open
   quit = false;
+  viewscore = true;
   menuContainer.style.display = "none";
   goodbyemode.style.display ="none";
+  scoremode=style.display ="block"; // show score only when the play start playing
+  scoremode= this.textContent = "Your-Score: " + instance.score; // initailize scoe of 0
+
+
   });
 
 settingsButton.addEventListener("click", function() {

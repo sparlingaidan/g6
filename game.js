@@ -7,7 +7,10 @@ class Game {
 
     //This sets the running state of the game to false when the game is created.
     constructor() {
-        this.running = false;  //running = true if running & vice versa
+        this.running = false;    //running = true if running & vice versa
+        // this.score = 0;
+        // this.scoreA = 360;
+        // this.scoreB = 10;
     }
 
 
@@ -18,6 +21,8 @@ class Game {
         drawBalls();
         this.drawDashedLine();
         ToMenuButton.displayButton();
+        //  this.didBallmerge();//
+        //  this.displayScore();//
     }
 
     //Set the running state to true
@@ -79,6 +84,8 @@ class Game {
             }
             noStroke();
         }
+       
     }
+
      
 
