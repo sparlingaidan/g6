@@ -29,9 +29,8 @@ let settingsButtons = [];
 
 
 //Initialize Buttons here
-let testButton = new SettingsButton('test', 40, 50);
-let testButton2 = new SettingsButton('test2', 40, 90);
-let testButton3 = new SettingsButton('test3', 40, 130);
+let showBallsButton = new SettingsButton('Show Ball Types', 40, 50);
+
 
 
 
@@ -41,9 +40,7 @@ class SettingsMenu {
     //Add Button to settingsButtons after initialization
     constructor() {
         this.open = false;
-        settingsButtons.push(testButton);
-        settingsButtons.push(testButton2);
-        settingsButtons.push(testButton3);
+        settingsButtons.push(showBallsButton);
     }
 
     getOpen() {
@@ -79,22 +76,15 @@ class SettingsMenu {
 //Add button-specific-action as an else if statement that calls a custom function, in this function.
 function menuButtonClicked(action) {
     console.log("this menu button works");
-    if (action == 'test') {                 //Check for action
-        TestButton();         //If the button clicked has this action, a function will be performed
-    } else if (action == 'test2') {
-        console.log("Test Button2");
-    } else if (action == 'test3') {
-        TestButtonThree();
+    if (action == 'Show Ball Types') {                 //Check for action
+        ShowBalls();                                   //If the button clicked has this action, a function will be performed
     }
 }
 
 
 // Individual menu button functions below:
 
-function TestButton() {
-    console.log("Test Button");
-}
 
-function TestButtonThree() {
-    console.log("Test Button 3");
+function ShowBalls() {
+    ballViewer.setOpenTrue();
 }

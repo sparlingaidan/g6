@@ -11,27 +11,17 @@ let startY = 100;
 let firstClick = true; //Boolean to track the click for the start button and make sure not to draw a ball on that click.
 
 //Ball object, Constructor accepts only a level.
-class Ball{
-  constructor(level){
+class Ball {
+  constructor(level, x = 0, y = startY){
     this.level = level;
-    this.diameter = level * 20; //I'm not sure what relation we want from the level to its size.
-    this.xlocation = 0;
-    this.ylocation = startY;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.color= "white";
-  }
-
- /* constructor(level, x, y) {
-    this.level = level;
-    this.diameter = level * 20; //I'm not sure what relation we want from the level to its size.
+    this.diameter = 20 + level * 10; //I'm not sure what relation we want from the level to its size.
     this.xlocation = x;
     this.ylocation = y;
     this.speedX = 0;
     this.speedY = 0;
     this.color= "white";
   }
-    */
+
 
   //method for printing the ball to the screen.
   to_screen(){

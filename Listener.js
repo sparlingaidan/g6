@@ -26,11 +26,15 @@ function mousePressed() {
 //put independant javascript button functions here
 
 function exitButtonClicked() {          //exit button function
-    exitable = false;
-    menuContainer.style.display = "block";
-    instance.setRunningFalse();
-    ballArray = [];
-    settingsMenu.setOpenFalse();
+    if (ballViewer.getOpen()) {
+        ballViewer.setOpenFalse();
+    } else {
+        exitable = false;
+        menuContainer.style.display = "block";
+        instance.setRunningFalse();
+        ballArray = [];
+        settingsMenu.setOpenFalse();
+    }
 }
 
 
