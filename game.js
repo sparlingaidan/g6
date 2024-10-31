@@ -50,7 +50,7 @@ class Game {
     getRunningState() {
         return this.running;
     }
-}
+
 
     // Function to draw the container
     loadContainer() {
@@ -86,6 +86,4 @@ class Game {
             noStroke();
         }
        
-    
-     
-
+}

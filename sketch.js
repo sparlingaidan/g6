@@ -7,12 +7,12 @@ var exitable = true; //there is an exitable situation in which the exit to menu 
 var viewscore = false; //score
 
 
-const startButton = document.getElementById("Startbutton");
-const settingsButton = document.getElementById("Settingsbutton");
-const quitButton = document.getElementById("Quitbutton");
-const menuContainer = document.getElementById("themenu-container");
-const goodbyemode = document.getElementById("goodbye-message");
-const scoremode= document.getElementById("goodbye-message");
+// const startButton = document.getElementById("Startbutton");
+// const settingsButton = document.getElementById("Settingsbutton");
+// const quitButton = document.getElementById("Quitbutton");
+// const menuContainer = document.getElementById("themenu-container");
+// const goodbyemode = document.getElementById("goodbye-message");
+// const scoremode= document.getElementById("goodbye-message");
 
 
 function setup() {
@@ -33,54 +33,53 @@ function draw() {
     background(menuBackground);                   
   }
 
-  if (settingsMenu.getOpen()) {
-    settingsMenu.runSettingsMenu();
-    if (ballViewer.getOpen()) {
-      ballViewer.runBallViewer();
-    }
-  }
-}
+//   if (settingsMenu.getOpen()) {
+//     settingsMenu.runSettingsMenu();
+//     if (ballViewer.getOpen()) {
+//       ballViewer.runBallViewer();
+//     }
+//   }
+// }
 
-startButton.addEventListener("click", function() {
-  instance.setRunningTrue(); //start game
-  settings = false; //close settings if open
-  quit = false;
-  viewscore = true;
-  menuContainer.style.display = "none";
-  goodbyemode.style.display ="none";
-  scoremode=style.display ="block"; // show score only when the play start playing
-  scoremode= this.textContent = "Your-Score: " + instance.score; // initailize scoe of 0
+// startButton.addEventListener("click", function() {
+//   instance.setRunningTrue(); //start game
+//   settings = false; //close settings if open
+//   quit = false;
+//   viewscore = true;
+//   menuContainer.style.display = "none";
+//   goodbyemode.style.display ="none";
+//   scoremode=style.display ="block"; // show score only when the play start playing
+//   scoremode= this.textContent = "Your-Score: " + instance.score; // initailize scoe of 0
 
 
-  });
+//   });
 
-settingsButton.addEventListener("click", function() {
-  if (!(instance.getRunningState())) {
-    if (settings == false) {
-      settings = true;
-      quit = false;
-    } else {
-      settings = false;
-      quit = false;
-      }
-    }  
-     goodbyemode.style.display ="none";
-    menuContainer.style.display = "none";
+// settingsButton.addEventListener("click", function() {
+//   if (!(instance.getRunningState())) {
+//     if (settings == false) {
+//       settings = true;
+//       quit = false;
+//     } else {
+//       settings = false;
+//       quit = false;
+//       }
+//     }  
+//      goodbyemode.style.display ="none";
+//     menuContainer.style.display = "none";
     
-  });
+//   });
 
-quitButton.addEventListener("click", function() {
-  if (!(instance.getRunningState()) && !settings) {
-      quit = true;
-      menuContainer.style.display = "none";
-      showGoodBye(); 
-      }
-  });
+// quitButton.addEventListener("click", function() {
+//   if (!(instance.getRunningState()) && !settings) {
+//       quit = true;
+//       menuContainer.style.display = "none";
+//       showGoodBye(); 
+//       }
+//   });
 
-function showGoodBye() {
-  if (quit){
-   goodbyemode.style.display = "block";
-  }  
+// function showGoodBye() {
+//   if (quit){
+//    goodbyemode.style.display = "block";
+//   }  
+// }
 }
-
-
