@@ -20,7 +20,7 @@ class Game {
         drawBalls();
         drawDashedLine();
         ToMenuButton.displayButton();
-        this.didBallmerge();// for score
+        //this.didBallmerge();// for score
         this.displayScore();// for score
     }
 
@@ -51,6 +51,11 @@ class Game {
     }
 
     displayScore() { //forscore
+    this.score = 0;
+      for(i = 0; i < ballArray.length; i ++){
+        this.score =this.score+2 + ballArray[i].level
+      }
+      this.score = this.score + (ballCombinations * 2)
       const pscoring = document.getElementById("scoring");
       pscoring.textContent = `Score: ${this.score}`;
     }
@@ -59,9 +64,6 @@ class Game {
         this.displayScore();
     }
 
-    backtozero(){
-        this.score = 0;
-    }
     // Function to draw the container
     loadContainer() {
         stroke(0);
@@ -101,9 +103,9 @@ class Game {
     for (let i = 0; i < ballArray.length; i++) {
         for (let j = i + 1; j < ballArray.length; j++) {
             if (this.checkCollision(ballArray[i], ballArray[j])) {
-                this. addtoscore();           // add to score
-                ballArray.splice(j, 1);      // Remove the second ball
-                j--;                         // Adjust index after removal
+                //this. addtoscore();           // add to score
+                //ballArray.splice(j, 1);      // Remove the second ball
+                //j--;                         // Adjust index after removal
             }
         }
     }
