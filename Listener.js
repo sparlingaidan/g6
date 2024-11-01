@@ -33,6 +33,7 @@ function exitButtonClicked() {          //exit button function
         instance.setRunningFalse();
         ballArray = [];
         settingsMenu.setOpenFalse();
+        backtozero();
         scoringit.style.display ="none";
     }
 }
