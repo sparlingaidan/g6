@@ -8,7 +8,7 @@ class Game {
     //This sets the running state of the game to false when the game is created.
     constructor() {
         this.running = false;    //running = true if running & vice versa
-         this.score = 0;// for score
+         this.score = 0;// for score problem is here it neve updating.
         
     }
 
@@ -20,8 +20,8 @@ class Game {
         drawBalls();
         drawDashedLine();
         ToMenuButton.displayButton();
-         didBallmerge();// for score
-         displayScore();// for score
+        this.didBallmerge();// for score
+        this.displayScore();// for score
     }
 
     //Set the running state to true
@@ -95,8 +95,24 @@ class Game {
 
        
   didBallmerge(){
-    //iff
-    this.addtoscore();
+    for (let i = 0; i < ballArray.length; i++) {
+        for (let j = i + 1; j < ballArray.length; j++) {
+            if (this.checkCollision(ballArray[i], ballArray[j])) {
+                this. addtoscore();           // add to score
+                ballArray.splice(j, 1);      // Remove the second ball
+                j--;                         // Adjust index after removal
+            }
+        }
+    }
+
+  
+}
+   checkCollision(ball1, ball2) {
+    const dx = ball1.xlocation - ball2.xlocation;
+    const dy = ball1.ylocation - ball2.ylocation;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const collisionDistance = (ball1.diameter / 2) + (ball2.diameter / 2);
+    return distance < collisionDistance;
   }
 }
     

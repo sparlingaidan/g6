@@ -67,9 +67,6 @@ function mouseClicked() {
   }
 }
 
-
-
-
 let topBall = new Ball(2);
 function drawTopBall(){
 
@@ -88,7 +85,6 @@ function drawTopBall(){
 
   topBall.to_screen();
 }
-
 
 
 //Updates the balls current speed, and moves it if it can.
@@ -123,10 +119,9 @@ function moveMaybe(ballm,i){
           ballm.speedY = ballm.speedY + sin(angle) * bouncedist * .1;
         }
     }
+    instance.didBallmerge();//score trigger
     }
-  
     
-  
     //For stopping the ball at the bottom of the jar.
     if ( ballm.ylocation >= (jarBottom - (ballm.diameter >> 1) ) ){
       ballm.ylocation = jarBottom - (ballm.diameter >> 1);
@@ -150,8 +145,10 @@ function moveMaybe(ballm,i){
     ballm.speedY = ballm.speedY *.5;
     ballm.ylocation = ballm.ylocation + Math.floor(ballm.speedY);
     ballm.xlocation = ballm.xlocation + Math.floor(ballm.speedX);
+    // instance.didBallmerge();//score trigger
   
   }
+  
 
 
 //Iterate through the list of balls, maybe move and draw each one.
@@ -163,9 +160,6 @@ function drawBalls(){
     temp.to_screen();    //print the ball
     moveMaybe(temp,i);     //maybe move the ball
   }
-  
-
-  
   
 }
 

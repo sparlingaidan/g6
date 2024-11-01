@@ -4,8 +4,6 @@ let ballViewer = new BallViewer(); //single instance of ball viewer
 
 var quit = false;
 var exitable = true; //there is an exitable situation in which the exit to menu button could be pressed.
-var viewscore = false; //score
-
 
 
 function setup() {

@@ -22,7 +22,6 @@ function mousePressed() {
     }   
 }
 
-
 //put independant javascript button functions here
 
 function exitButtonClicked() {          //exit button function
@@ -34,12 +33,9 @@ function exitButtonClicked() {          //exit button function
         instance.setRunningFalse();
         ballArray = [];
         settingsMenu.setOpenFalse();
+        scoringit.style.display ="none";
     }
 }
-
-
-
-
 
 
 //HTML Button stuff below
@@ -49,7 +45,7 @@ const settingsButton = document.getElementById("Settingsbutton");
 const quitButton = document.getElementById("Quitbutton");
 const menuContainer = document.getElementById("themenu-container");
 const goodbyemode = document.getElementById("goodbye-message");
-
+const scoringit = document.getElementById("scoring"); //newscore
 
 startButton.addEventListener("click", function() {
     instance.setRunningTrue(); //start game
@@ -57,6 +53,9 @@ startButton.addEventListener("click", function() {
     quit = false;
     menuContainer.style.display = "none";
     goodbyemode.style.display ="none";
+    // instance.score = 0; //to 0 score
+    scoringit.style.display ="block"; // show score only when the play start playing
+    instance.displayScore();
     });
   
   settingsButton.addEventListener("click", function() {
@@ -71,6 +70,7 @@ startButton.addEventListener("click", function() {
       }  
        goodbyemode.style.display ="none";
       menuContainer.style.display = "none";
+      scoringit.style.display ="none";//for score
       
     });
   
@@ -79,11 +79,13 @@ startButton.addEventListener("click", function() {
         quit = true;
         menuContainer.style.display = "none";
         showGoodBye(); 
+        scoringit.style.display ="none";//scoring
         }
     });
   
   function showGoodBye() {
     if (quit){
      goodbyemode.style.display = "block";
+     scoringit.style.display ="none";//score
     }  
   }
