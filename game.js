@@ -8,9 +8,8 @@ class Game {
     //This sets the running state of the game to false when the game is created.
     constructor() {
         this.running = false;    //running = true if running & vice versa
-        // this.score = 0;
-        // this.scoreA = 360;
-        // this.scoreB = 10;
+         this.score = 0;// for score
+        
     }
 
 
@@ -21,8 +20,8 @@ class Game {
         drawBalls();
         drawDashedLine();
         ToMenuButton.displayButton();
-        //  this.didBallmerge();//
-        //  this.displayScore();//
+         didBallmerge();// for score
+         displayScore();// for score
     }
 
     //Set the running state to true
@@ -51,6 +50,14 @@ class Game {
         return this.running;
     }
 
+    displayScore() { //forscore
+      const pscoring = document.getElementById("scoring");
+      pscoring.textContent = `Score: ${this.score}`;
+    }
+    addtoscore(){ //forscore
+        this.score +=2;
+        this.displayScore();
+    }
 
     // Function to draw the container
     loadContainer() {
@@ -85,5 +92,13 @@ class Game {
             }
             noStroke();
         }
+
        
+  didBallmerge(){
+    //iff
+    this.addtoscore();
+  }
 }
+    
+
+
